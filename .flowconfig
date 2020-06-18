@@ -1,0 +1,15 @@
+[ignore]
+
+[include]
+./flow-typed
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]
+
+[declarations]
+<PROJECT_ROOT>/node_modules/fbjs/lib/emptyFunction.js.flow
