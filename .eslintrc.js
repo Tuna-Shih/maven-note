@@ -1,8 +1,8 @@
-// @flow
-
 module.exports = {
   extends: '@mikojs/base',
   rules: {
+    'flowtype/require-valid-file-annotation': 'off',
+    'flowtype/require-return-type': 'off',
     'jsdoc/check-tag-names': [
       'error',
       {
