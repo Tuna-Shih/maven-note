@@ -11,21 +11,21 @@ const Header = () => {
   return (
     <div className={styles.root}>
       <Button
-        type="primary"
         onClick={() => {
           setVisible(true);
         }}
+        type="primary"
       >
         <MenuOutlined />
       </Button>
       <Drawer
         className={styles.menu}
-        width="100%"
-        visible={visible}
-        placement="left"
         onClose={() => {
           setVisible(false);
         }}
+        visible={visible}
+        width="100%"
+        placement="left"
       >
         <Button>Log in with Google</Button>
         <Button>Settings</Button>

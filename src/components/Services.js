@@ -15,8 +15,8 @@ const Provider = ({ children }) => {
     <ServiceContext.Provider
       value={{
         services,
-        add: inputData => {
-          setServices([inputData, ...services]);
+        add: data => {
+          setServices([data, ...services]);
         },
         remove: emptyFunction,
         edit: emptyFunction,

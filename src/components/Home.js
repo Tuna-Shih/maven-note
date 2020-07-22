@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Header from './Header';
+import Service from './Service';
 import { ServicesProvider } from './Services';
 import styles from './styles/Home.less';
 
@@ -10,7 +11,8 @@ const Home = () => (
     <div className={styles.root}>
       <Header />
       <div className={styles.header}>Service Tracker</div>
-      TodoList TodoService
+      TodoList
+      <Service />
     </div>
   </ServicesProvider>
 );

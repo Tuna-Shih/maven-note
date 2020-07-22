@@ -1,0 +1,47 @@
+@import '~antd/lib/style/themes/default.less';
+
+.newService {
+  background-color: black;
+  color: white;
+  border: 0px;
+  box-shadow: none;
+  margin: 0px 10px 0px 10px;
+}
+
+.service {
+  font-family: Roboto;
+
+  label {
+    font-size: 12px;
+  }
+
+  :global(.ant-drawer-header) {
+    border: 0px;
+
+    > :first-child {
+      text-align: center;
+      font-weight: 500;
+      color: black;
+    }
+  }
+
+  :global(.ant-drawer-close) {
+    color: black;
+  }
+
+  :global(.ant-input-number) {
+    width: 100%;
+
+    > :first-child {
+      display: none;
+    }
+  }
+
+  :global(.ant-btn.ant-btn-primary) {
+    background-color: black;
+    color: white;
+    border: 0px;
+    box-shadow: none;
+    width: 100%;
+  }
+}
