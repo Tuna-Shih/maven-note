@@ -1,14 +1,18 @@
-@import '~antd/lib/style/themes/default.less';
-
 .newService {
   background-color: black;
   color: white;
   border: 0px;
   box-shadow: none;
   margin: 0px 10px 0px 10px;
+
+  &:hover {
+    color: initial !important;
+    background-color: initial !important;
+  }
 }
 
 .service {
+  transform: none !important;
   font-family: Roboto;
 
   label {
@@ -37,7 +41,7 @@
     }
   }
 
-  :global(.ant-btn.ant-btn-primary) {
+  .addService {
     background-color: black;
     color: white;
     border: 0px;

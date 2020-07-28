@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Drawer, Form, Button, Input, Select, InputNumber } from 'antd';
 import isURL from 'validator/lib/isURL';
 
+import UploadIcon from './UploadIcon';
 import styles from './styles/Service.less';
 import useOnFinish from './hooks/useOnFinish';
 
@@ -25,6 +26,7 @@ const Service = () => {
       >
         New Service
       </Button>
+
       <Drawer
         className={styles.service}
         onClose={() => {
@@ -59,7 +61,9 @@ const Service = () => {
           >
             <Input placeholder="Please enter url" />
           </FormItem>
-          UploadIcon
+          <FormItem name="iconURL" label="LOGO / ICON">
+            <UploadIcon />
+          </FormItem>
           <FormItem
             rules={[
               {
@@ -97,7 +101,7 @@ const Service = () => {
               <Option value="yearly">Yearly</Option>
             </Select>
           </FormItem>
-          <Button type="primary" htmlType="submit">
+          <Button className={styles.addService} htmlType="submit">
             Add Service
           </Button>
         </Form>
