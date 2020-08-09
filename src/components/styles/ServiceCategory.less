@@ -1,0 +1,48 @@
+:global(.ant-select-dropdown.ant-select-dropdown-placement-bottomLeft) {
+  border: 1px solid #eeeeee;
+  border-radius: 4px;
+  box-shadow: none;
+  font-family: Roboto-Regular;
+
+  :global(.ant-select-item.ant-select-item-option.ant-select-item-option-selected) {
+    background-color: white;
+    font-weight: normal;
+  }
+
+  :global(.ant-select-item.ant-select-item-option.ant-select-item-option-active) {
+    background-color: white !important;
+  }
+
+  > :before {
+    color: #cccccc;
+    font-size: 10px;
+    padding: 10px;
+    content: 'Select an option or create one';
+  }
+
+  :global(.ant-select-item.ant-select-item-option) {
+    display: flex;
+    flex-direction: column;
+
+    :global(.ant-select-item-option-content) {
+      color: black;
+    }
+  }
+}
+
+:global(.ant-select-item-empty) {
+  display: flex;
+  flex-direction: column;
+
+  > div {
+    :first-child {
+      color: #888888;
+      font-size: 12px;
+    }
+
+    :last-child {
+      color: black;
+      padding-left: 6px;
+    }
+  }
+}

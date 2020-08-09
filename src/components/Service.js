@@ -3,6 +3,7 @@ import { Drawer, Form, Button, Input, Select, InputNumber } from 'antd';
 import isURL from 'validator/lib/isURL';
 
 import UploadIcon from './UploadIcon';
+import ServiceCategory from './ServiceCategory';
 import styles from './styles/Service.less';
 import useOnFinish from './hooks/useOnFinish';
 
@@ -61,9 +62,11 @@ const Service = () => {
           >
             <Input placeholder="Please enter url" />
           </FormItem>
+
           <FormItem name="iconURL" label="LOGO / ICON">
             <UploadIcon />
           </FormItem>
+
           <FormItem
             rules={[
               {
@@ -73,8 +76,21 @@ const Service = () => {
             name="serviceName"
             label="SERVICE NAME"
           >
-            <Input placeholder="Please enter user name" />
+            <Input placeholder="Please enter service name" />
           </FormItem>
+
+          <FormItem
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+            name="serviceCategory"
+            label="Service Category"
+          >
+            <ServiceCategory />
+          </FormItem>
+
           <FormItem
             rules={[
               {
@@ -86,6 +102,7 @@ const Service = () => {
           >
             <InputNumber min={0} max={1000000} placeholder="$0 - $1,000,000" />
           </FormItem>
+
           <FormItem
             rules={[
               {
@@ -101,6 +118,7 @@ const Service = () => {
               <Option value="yearly">Yearly</Option>
             </Select>
           </FormItem>
+
           <Button className={styles.addService} htmlType="submit">
             Add Service
           </Button>
