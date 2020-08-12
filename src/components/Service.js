@@ -82,7 +82,12 @@ const Service = () => {
           </FormItem>
 
           <FormItem rules={[{ required: true }]} name="price" label="PRICE">
-            <InputNumber min={0} max={1000000} placeholder="$0 - $1,000,000" />
+            <InputNumber
+              formatter={value => `$ ${value}`}
+              min={0}
+              max={1000000}
+              placeholder="$0 - $1,000,000"
+            />
           </FormItem>
 
           <FormItem

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import emptyFunction from 'fbjs/lib/emptyFunction';
+import { v4 as uuidv4 } from 'uuid';
 
 const ServiceContext = React.createContext({
   services: [],
@@ -15,10 +16,14 @@ const Provider = ({ children }) => {
     <ServiceContext.Provider
       value={{
         services,
-        add: data => {
-          setServices([data, ...services]);
-        },
+
+        add: useCallback(
+          data => setServices([{ ...data, id: uuidv4() }, ...services]),
+          [services],
+        ),
+
         remove: emptyFunction,
+
         edit: emptyFunction,
       }}
     >

@@ -14,6 +14,7 @@ const ServiceCategory = forwardRef(({ value, ...props }, ref) => {
     <AutoComplete
       {...props}
       ref={ref}
+      value={value}
       notFoundContent={
         <div>
           <span>{'Create'}</span>
