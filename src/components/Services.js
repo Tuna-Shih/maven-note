@@ -22,9 +22,23 @@ const Provider = ({ children }) => {
           [services],
         ),
 
-        remove: emptyFunction,
+        remove: useCallback(
+          id => {
+            setServices(services.filter(service => service.id !== id));
+          },
+          [services],
+        ),
 
-        edit: emptyFunction,
+        edit: useCallback(
+          (id, data) => {
+            setServices(
+              services.map(service =>
+                service.id === id ? { ...data, id } : service,
+              ),
+            );
+          },
+          [services],
+        ),
       }}
     >
       {children}

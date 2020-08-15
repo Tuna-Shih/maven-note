@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Drawer, Form, Button, Input, Select, InputNumber } from 'antd';
 import isURL from 'validator/lib/isURL';
+import { EditOutlined } from '@ant-design/icons';
 
 import UploadIcon from './UploadIcon';
 import ServiceCategory from './ServiceCategory';
@@ -11,7 +12,7 @@ const { Option } = Select;
 const { Item: FormItem } = Form;
 
 /** @react Service component */
-const Service = () => {
+const Service = ({ isEdit, ...props }) => {
   const [visible, setVisible] = useState(false);
   const [form] = Form.useForm();
   const onFinish = useOnFinish(form, setVisible);
@@ -19,13 +20,12 @@ const Service = () => {
   return (
     <>
       <Button
-        className={styles.newService}
+        className={isEdit ? '' : styles.newService}
         onClick={() => {
           setVisible(true);
         }}
-        type="primary"
       >
-        New Service
+        {isEdit ? <EditOutlined /> : 'New Service'}
       </Button>
 
       <Drawer
@@ -35,10 +35,11 @@ const Service = () => {
           form.resetFields();
         }}
         visible={visible}
-        title="Add Service"
+        title={isEdit ? 'Edit Service' : 'Add Service'}
         width="100%"
       >
         <Form
+          {...props}
           onFinish={onFinish}
           form={form}
           layout="vertical"
@@ -102,12 +103,15 @@ const Service = () => {
             </Select>
           </FormItem>
 
+          <FormItem name="id" hidden />
+
           <Button className={styles.addService} htmlType="submit">
-            Add Service
+            {isEdit ? 'Save' : 'Add Service'}
           </Button>
         </Form>
       </Drawer>
     </>
   );
 };
+
 export default React.memo(Service);

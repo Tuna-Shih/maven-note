@@ -3,14 +3,19 @@ import { useCallback, useContext } from 'react';
 import ServiceContext from '../Services';
 
 export default (form, setVisible) => {
-  const { add } = useContext(ServiceContext);
+  const { add, edit } = useContext(ServiceContext);
 
   return useCallback(
-    data => {
-      add(data);
+    ({ id, ...data }) => {
+      if (!id) {
+        add(data);
+      } else {
+        edit(id, data);
+      }
+
       form.resetFields();
       setVisible(false);
     },
-    [add, form, setVisible],
+    [add, edit, form, setVisible],
   );
 };
