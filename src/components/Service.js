@@ -105,7 +105,11 @@ const Service = ({ isEdit, ...props }) => {
 
           <FormItem name="id" hidden />
 
-          <Button className={styles.addService} htmlType="submit">
+          <Button
+            className={styles.addService}
+            htmlType="submit"
+            type="primary"
+          >
             {isEdit ? 'Save' : 'Add Service'}
           </Button>
         </Form>

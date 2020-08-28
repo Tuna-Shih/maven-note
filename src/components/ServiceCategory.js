@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import { AutoComplete } from 'antd';
 
 import useOptions from './hooks/useOptions';
-import './styles/ServiceCategory.less';
+import styles from './styles/ServiceCategory.less';
 
 const { Option } = AutoComplete;
 
@@ -14,12 +14,13 @@ const ServiceCategory = forwardRef(({ value, ...props }, ref) => {
     <AutoComplete
       {...props}
       ref={ref}
+      className={styles.root}
       value={value}
       notFoundContent={
-        <div>
+        <>
           <span>{'Create'}</span>
           <span>{value}</span>
-        </div>
+        </>
       }
       placeholder="Select or create a category"
     >

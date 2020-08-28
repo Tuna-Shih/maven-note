@@ -1,22 +1,13 @@
 .root {
   position: fixed;
   margin-top: 10px;
-
-  :global(.ant-btn.ant-btn-primary) {
-    background-color: white;
-    border: 0px;
-    box-shadow: none;
-    > span {
-      color: black;
-    }
-  }
 }
 
 .menu {
   :global(.ant-drawer-close) {
     left: 0px;
 
-    :global(.anticon.anticon-close) {
+    > span {
       color: white;
       font-size: 20px;
     }
@@ -25,17 +16,7 @@
   :global(.ant-drawer-body) {
     display: flex;
     flex-direction: column;
-    background-color: black;
     justify-content: center;
-
-    :global(.ant-btn) {
-      background-color: black;
-      border: 0px;
-
-      > span {
-        color: white;
-        font-family: OpenSans;
-      }
-    }
+    background-color: black;
   }
 }

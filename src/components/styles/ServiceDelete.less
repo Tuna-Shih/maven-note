@@ -11,8 +11,18 @@
     border: 0px;
   }
 
+  :global(.ant-drawer-body) {
+    color: #888888;
+  }
+
   :global(.ant-drawer-footer) {
-    text-align: right;
     border: 0px;
+    padding: 12px 24px 12px 24px;
+    text-align: right;
+
+    > :first-child {
+      border: 1px solid #eeeeee;
+      margin-right: 8px;
+    }
   }
 }

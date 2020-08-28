@@ -29,6 +29,19 @@ if (typeof require !== 'undefined') require.extensions['.less'] = emptyFunction;
 module.exports = withLess({
   cssModules: true,
   lessLoaderOptions: {
+    modifyVars: {
+      'text-color': '#000000',
+      'btn-shadow': '0 0px 0 rgba(0, 0, 0, 0)',
+      'border-radius-base': '4px',
+      'btn-border-radius-base': '2px',
+      'btn-border-width': '0px',
+
+      'btn-default-color': '#000000',
+      'btn-default-bg': '#ffffff',
+
+      'btn-primary-color': '#ffffff',
+      'btn-primary-bg': '#000000',
+    },
     javascriptEnabled: true,
   },
   dir: 'src',

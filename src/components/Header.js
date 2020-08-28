@@ -14,7 +14,6 @@ const Header = () => {
         onClick={() => {
           setVisible(true);
         }}
-        type="primary"
       >
         <MenuOutlined />
       </Button>
@@ -27,10 +26,10 @@ const Header = () => {
         width="100%"
         placement="left"
       >
-        <Button>Log in with Google</Button>
-        <Button>Settings</Button>
-        <Button>Donate</Button>
-        <Button>Feedback</Button>
+        <Button type="primary">Log in with Google</Button>
+        <Button type="primary">Settings</Button>
+        <Button type="primary">Donate</Button>
+        <Button type="primary">Feedback</Button>
       </Drawer>
     </div>
   );

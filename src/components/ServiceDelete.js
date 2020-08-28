@@ -28,7 +28,6 @@ const ServiceDelete = ({ id }) => {
               onClick={() => {
                 setDeleteVisible(false);
               }}
-              type="primary"
             >
               Cancel
             </Button>
@@ -38,6 +37,7 @@ const ServiceDelete = ({ id }) => {
                 setDeleteVisible(false);
                 remove(id);
               }}
+              type="primary"
             >
               Delete
             </Button>
