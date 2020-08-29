@@ -1,3 +1,28 @@
+.selectCost {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.filter {
+  width: 60%;
+  font-family: OpenSans;
+
+  :global(.ant-select-selector) {
+    border: solid 1px #eeeeee !important;
+    background-color: #f0f0f0 !important;
+  }
+}
+
+.cost {
+  width: 30%;
+  align-self: center;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+  font-family: Roboto;
+}
+
 .messege {
   text-align: center;
   color: #cccccc;
@@ -10,9 +35,36 @@
   :global(.ant-list-empty-text) {
     display: none;
   }
+}
 
-  :global(.ant-list-item-action) {
-    > li > a > span {
+.actions {
+  display: flex;
+  height: 50px;
+
+  &:hover {
+    .tools {
+      opacity: 100%;
+    }
+
+    .price {
+      opacity: 0%;
+      z-index: -1;
+    }
+  }
+
+  .tools {
+    width: 80px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0%;
+
+    > * {
+      margin: 0px 8px;
+    }
+
+    > a > span {
       color: black;
     }
 
@@ -21,7 +73,22 @@
     }
   }
 
-  :global(.ant-list-item-action-split) {
-    display: none;
+  .price {
+    position: absolute;
+    min-width: 80px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 100%;
+
+    :first-child {
+      color: black;
+    }
+
+    :last-child {
+      font-size: 10px;
+      color: #cccccc;
+    }
   }
 }

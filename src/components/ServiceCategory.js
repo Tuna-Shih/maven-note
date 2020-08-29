@@ -14,13 +14,13 @@ const ServiceCategory = forwardRef(({ value, ...props }, ref) => {
     <AutoComplete
       {...props}
       ref={ref}
-      className={styles.root}
+      dropdownClassName={styles.root}
       value={value}
       notFoundContent={
-        <>
+        <div className={styles.notFoundContent}>
           <span>{'Create'}</span>
           <span>{value}</span>
-        </>
+        </div>
       }
       placeholder="Select or create a category"
     >

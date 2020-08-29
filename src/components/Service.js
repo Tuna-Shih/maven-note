@@ -103,7 +103,9 @@ const Service = ({ isEdit, ...props }) => {
             </Select>
           </FormItem>
 
-          <FormItem name="id" hidden />
+          <FormItem name="id" hidden>
+            <Input />
+          </FormItem>
 
           <Button
             className={styles.addService}

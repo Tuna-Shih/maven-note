@@ -5,6 +5,7 @@ import Service from './Service';
 import ServiceList from './ServiceList';
 import { ServicesProvider } from './Services';
 import styles from './styles/Home.less';
+import './styles/Global.less';
 
 /** @react Home page */
 const Home = () => (

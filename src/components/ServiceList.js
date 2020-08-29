@@ -1,36 +1,67 @@
-import React, { useContext } from 'react';
-import { List, Avatar } from 'antd';
+import React from 'react';
+import { Select, List, Avatar } from 'antd';
 import { FormOutlined } from '@ant-design/icons';
 
-import ServiceContext from './Services';
 import Service from './Service';
 import ServiceDelete from './ServiceDelete';
+import useFilterServices from './hooks/useFilterServices';
+import useOptions from './hooks/useOptions';
 import styles from './styles/ServiceList.less';
 
 const { Item: ListItem } = List;
+const { Option } = Select;
 
 /** @react ServiceList component */
 const ServiceList = () => {
-  const { services } = useContext(ServiceContext);
+  const options = useOptions();
+  const { filteredServices, cost, setSelected } = useFilterServices();
 
   return (
     <>
-      filterSelect and cost
-      <p className={styles.messege}>
-        {services.length ? null : `Add new service to start tracking.`}
-      </p>
+      <div className={styles.selectCost}>
+        <Select
+          className={styles.filter}
+          onSelect={setSelected}
+          defaultValue="All Services"
+          defaultActiveFirstOption
+        >
+          {['All Services', ...options].map(option => (
+            <Option key={option} value={option}>
+              {option}
+            </Option>
+          ))}
+        </Select>
+
+        <div className={styles.cost}>{cost}</div>
+      </div>
+
+      {filteredServices.length ? null : (
+        <p className={styles.messege}>Add new service to start tracking.</p>
+      )}
+
       <List
         className={styles.list}
         renderItem={service => (
           <ListItem
             actions={[
-              <a href={service.serviceUrl}>
-                <FormOutlined />
-              </a>,
+              <div className={styles.actions}>
+                <div className={styles.tools}>
+                  <a key={service.serviceUrl} href={service.serviceUrl}>
+                    <FormOutlined />
+                  </a>
+                  <Service
+                    key={service.serviceName}
+                    initialValues={service}
+                    isEdit
+                  />
+                  <ServiceDelete key={service.id} id={service.id} />
+                </div>
 
-              <Service initialValues={service} isEdit />,
-
-              <ServiceDelete id={service.id} />,
+                <div className={styles.price}>
+                  <span>${service.price}</span>
+                  <span> /mo</span>
+                </div>
+              </div>,
             ]}
           >
             <ListItem.Meta
@@ -42,7 +73,7 @@ const ServiceList = () => {
             />
           </ListItem>
         )}
-        dataSource={services}
+        dataSource={filteredServices}
         itemLayout="horizontal"
       />
     </>
