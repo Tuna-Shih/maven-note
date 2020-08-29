@@ -18,7 +18,11 @@ const UploadIcon = forwardRef(({ value, onChange }, ref) => {
 
   return (
     <div className={styles.uploadIcon} ref={ref}>
-      {value ? <img src={value} alt="icon" /> : <PlaySquareOutlined />}
+      {!uploadVisible && value ? (
+        <img src={value} alt="icon" />
+      ) : (
+        <PlaySquareOutlined />
+      )}
 
       <Button
         onClick={() => {
