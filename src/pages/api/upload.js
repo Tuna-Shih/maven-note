@@ -1,5 +1,9 @@
+import path from 'path';
 import fs from 'file-system';
 import Formidable from 'formidable';
+import getConfig from 'next/config';
+
+const { serverRuntimeConfig } = getConfig();
 
 export const config = {
   api: {
@@ -26,7 +30,13 @@ export default async (req, res) => {
           return;
         }
 
-        fs.renameSync(files.icon.path, `./public/${files.icon.name}`);
+        fs.renameSync(
+          files.icon.path,
+          path.join(
+            serverRuntimeConfig.PROJECT_ROOT,
+            `./public/${files.icon.name}`,
+          ),
+        );
         resolve(files);
       });
     });
