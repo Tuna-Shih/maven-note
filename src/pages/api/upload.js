@@ -1,4 +1,3 @@
-import fs from 'file-system';
 import Formidable from 'formidable';
 
 export const config = {
@@ -26,7 +25,6 @@ export default async (req, res) => {
           return;
         }
 
-        fs.renameSync(files.icon.path, `/public/${files.icon.name}`);
         resolve(files);
       });
     });
