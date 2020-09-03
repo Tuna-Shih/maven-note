@@ -37,6 +37,8 @@ export default async (req, res) => {
             `./public/${files.icon.name}`,
           ),
         );
+        console.log(files);
+
         resolve(files);
       });
     });
