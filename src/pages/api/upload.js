@@ -29,6 +29,7 @@ export default async (req, res) => {
           reject(err);
           return;
         }
+        console.log(files);
 
         fs.renameSync(
           files.icon.path,
@@ -37,7 +38,6 @@ export default async (req, res) => {
             `./public/${files.icon.name}`,
           ),
         );
-        console.log(files);
 
         resolve(files);
       });
