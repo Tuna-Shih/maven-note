@@ -6,7 +6,7 @@
     "dev": "next -p $PORT",
     "lint": "esw --cache --color",
     "lint:watch": "yarn lint -w --rule \"prettier/prettier: off\" --quiet",
-    "prod": "next build",
+    "build": "next build",
     "start": "next start -p $PORT",
     "postinstall": "patch-package"
   },
@@ -17,7 +17,7 @@
     "fbjs": "^1.0.0",
     "file-system": "^2.2.2",
     "formidable": "^1.2.2",
-    "next": "^9.3.5",
+    "next": "9.4.4",
     "patch-package": "^6.2.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
