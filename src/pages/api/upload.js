@@ -26,7 +26,7 @@ export default async (req, res) => {
           return;
         }
 
-        fs.renameSync(files.icon.path, `/public/${files.icon.name}`);
+        fs.renameSync(files.icon.path, `./public/${files.icon.name}`);
         resolve(files);
       });
     });
