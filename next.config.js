@@ -6,6 +6,8 @@
 const withLess = require('@zeit/next-less');
 const emptyFunction = require('fbjs/lib/emptyFunction');
 
+const isProd = process.env.NODE_ENV === 'production';
+
 /* ::
 type ruleType = {
   test: RegExp,
@@ -27,6 +29,10 @@ type configType = {
 if (typeof require !== 'undefined') require.extensions['.less'] = emptyFunction;
 
 module.exports = withLess({
+  exportPathMap: () => ({
+    '/': { page: '/' },
+  }),
+  assetPrefix: isProd ? './' : '',
   cssModules: true,
   lessLoaderOptions: {
     modifyVars: {

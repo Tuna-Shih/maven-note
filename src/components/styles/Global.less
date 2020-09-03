@@ -5,3 +5,18 @@ button[ant-click-animating-without-extra-node]:after {
 :global(.ant-select-arrow) {
   color: black;
 }
+
+html {
+  overflow: -moz-hidden-unscrollable;
+  height: 100%;
+}
+
+body {
+  -ms-overflow-style: none;
+  height: 100%;
+  overflow: auto;
+
+  & ::-webkit-scrollbar {
+    display: none;
+  }
+}
