@@ -33,6 +33,9 @@ export default async (req, res) => {
           return;
         }
 
+        console.log(files);
+        console.log(files.icon.path);
+
         fs.renameSync(
           files.icon.path,
           path.join(
