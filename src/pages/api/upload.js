@@ -4,6 +4,8 @@ import Formidable from 'formidable';
 import getConfig from 'next/config';
 
 const { serverRuntimeConfig } = getConfig();
+console.log(serverRuntimeConfig.PROJECT_ROOT);
+console.log(path.join(serverRuntimeConfig.PROJECT_ROOT, '/public/'));
 
 export const config = {
   api: {
