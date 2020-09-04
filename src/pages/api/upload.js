@@ -20,6 +20,7 @@ export default async (req, res) => {
   const form = new Formidable.IncomingForm({
     multiples: true,
     keepExtensions: true,
+    uploadDir: path.join(serverRuntimeConfig.PROJECT_ROOT, `./public/`),
   });
 
   try {
@@ -29,7 +30,6 @@ export default async (req, res) => {
           reject(err);
           return;
         }
-        console.log(files);
 
         fs.renameSync(
           files.icon.path,
