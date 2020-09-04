@@ -60,7 +60,7 @@ const UploadIcon = forwardRef(({ value, onChange }, ref) => {
           beforeUpload={beforeUpload}
           onChange={handleChange}
           showUploadList={false}
-          action="/api/upload"
+          action="./api/upload"
           name="icon"
           listType="picture-card"
         >

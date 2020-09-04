@@ -4,6 +4,7 @@ import Formidable from 'formidable';
 import getConfig from 'next/config';
 
 const { serverRuntimeConfig } = getConfig();
+console.log(serverRuntimeConfig.PROJECT_ROOT);
 
 export const config = {
   api: {
@@ -20,7 +21,7 @@ export default async (req, res) => {
   const form = new Formidable.IncomingForm({
     multiples: true,
     keepExtensions: true,
-    uploadDir: path.join(serverRuntimeConfig.PROJECT_ROOT, `./public/`),
+    uploadDir: path.join(serverRuntimeConfig.PROJECT_ROOT, '/public/'),
   });
 
   try {
@@ -30,13 +31,13 @@ export default async (req, res) => {
           reject(err);
           return;
         }
-        console.log(files);
+        console.log(files.icon.path);
 
         fs.renameSync(
           files.icon.path,
           path.join(
             serverRuntimeConfig.PROJECT_ROOT,
-            `./public/${files.icon.name}`,
+            `/public/${files.icon.name}`,
           ),
         );
 
