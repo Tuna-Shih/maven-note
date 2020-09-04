@@ -20,7 +20,7 @@ export default async (req, res) => {
   const form = new Formidable.IncomingForm({
     multiples: true,
     keepExtensions: true,
-    uploadDir: path.join(serverRuntimeConfig.PROJECT_ROOT, '/public/'),
+    uploadDir: path.join(serverRuntimeConfig.PROJECT_ROOT, '/api/'),
   });
 
   try {
@@ -35,7 +35,7 @@ export default async (req, res) => {
           files.icon.path,
           path.join(
             serverRuntimeConfig.PROJECT_ROOT,
-            `/public/${files.icon.name}`,
+            `/api/${files.icon.name}`,
           ),
         );
 
