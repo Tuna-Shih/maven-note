@@ -1,5 +1,4 @@
 import path from 'path';
-import fs from 'file-system';
 import Formidable from 'formidable';
 import getConfig from 'next/config';
 
@@ -25,22 +24,9 @@ export default async (req, res) => {
 
   try {
     const img = await new Promise((resolve, reject) => {
-      form.parse(req, (err, fields, files) => {
-        if (err) {
-          reject(err);
-          return;
-        }
-
-        fs.renameSync(
-          files.icon.path,
-          path.join(
-            serverRuntimeConfig.PROJECT_ROOT,
-            `./public/${files.icon.name}`,
-          ),
-        );
-
-        resolve(files);
-      });
+      form.parse(req, (err, fields, files) =>
+        err ? reject(err) : resolve(files),
+      );
     });
 
     res.status(200).send(img);
