@@ -18,7 +18,6 @@
     "fbjs": "^1.0.0",
     "file-system": "^2.2.2",
     "formidable": "^1.2.2",
-    "heroku": "^7.42.13",
     "next": "9.4.4",
     "patch-package": "^6.2.2",
     "react": "^16.13.1",
