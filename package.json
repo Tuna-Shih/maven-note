@@ -6,8 +6,8 @@
     "dev": "next -p $PORT",
     "lint": "esw --cache --color",
     "lint:watch": "yarn lint -w --rule \"prettier/prettier: off\" --quiet",
-    "build": "next build",
-    "start": "next start -p $PORT",
+    "build": "next build --openssl-legacy-provider",
+    "start": "next start -p $PORT --openssl-legacy-provider",
     "postinstall": "patch-package"
   },
   "dependencies": {
